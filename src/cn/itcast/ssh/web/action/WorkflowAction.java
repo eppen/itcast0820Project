@@ -36,7 +36,6 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 
 	private WorkflowBean workflowBean = new WorkflowBean();
 
-	@Override
 	public WorkflowBean getModel() {
 		return workflowBean;
 	}

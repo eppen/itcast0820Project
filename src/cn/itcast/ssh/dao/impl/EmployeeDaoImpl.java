@@ -8,7 +8,7 @@ import cn.itcast.ssh.dao.IEmployeeDao;
 import cn.itcast.ssh.domain.Employee;
 
 public class EmployeeDaoImpl extends HibernateDaoSupport implements IEmployeeDao {
-	
+
 	/**使用用户名作为查询条件，查询用户对象*/
 	@Override
 	public Employee findEmployeeByName(String name) {

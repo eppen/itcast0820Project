@@ -12,8 +12,8 @@ public class LeaveBill {
 	private Date leaveDate = new Date();// 请假时间
 	private String remark;// 备注
 	private Employee user;// 请假人
-	
-	private Integer state=0;// 请假单状态 0初始录入,1.开始审批,2为审批完成
+
+	private Integer state = 0;// 请假单状态 0初始录入,1.开始审批,2为审批完成
 
 	public Long getId() {
 		return id;
@@ -70,6 +70,6 @@ public class LeaveBill {
 	public void setState(Integer state) {
 		this.state = state;
 	}
-	
-	
+
+
 }
