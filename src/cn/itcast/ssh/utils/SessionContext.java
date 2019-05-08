@@ -10,13 +10,16 @@ public class SessionContext {
 
 	public static void setUser(Employee user) {
 		if (user != null) {
+			// user不为空时，设置session
 			ServletActionContext.getRequest().getSession().setAttribute(GLOBLE_USER_SESSION, user);
 		} else {
+			// user为空时，清空session
 			ServletActionContext.getRequest().getSession().removeAttribute(GLOBLE_USER_SESSION);
 		}
 	}
 
 	public static Employee get() {
+		// 获取session
 		return (Employee) ServletActionContext.getRequest().getSession().getAttribute(GLOBLE_USER_SESSION);
 	}
 

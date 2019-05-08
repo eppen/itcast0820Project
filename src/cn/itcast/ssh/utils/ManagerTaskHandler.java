@@ -10,8 +10,8 @@ import cn.itcast.ssh.domain.Employee;
 import cn.itcast.ssh.service.IEmployeeService;
 
 /**
- * 员工经理任务分配
- *
+ * 员工经理任务分配：
+ *    使用类动态指定下一个任务的办理人
  */
 @SuppressWarnings("serial")
 public class ManagerTaskHandler implements TaskListener {

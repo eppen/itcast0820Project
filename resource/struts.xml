@@ -21,7 +21,8 @@
     	</interceptors>
     
   		<!-- 定义系统默认拦截器 全局 -->
-		<default-interceptor-ref name="systemStack" /> 
+		<default-interceptor-ref name="systemStack" />
+
     	<!-- 全局结果视图 -->
     	<global-results>
     		<result name="login" type="redirect">
