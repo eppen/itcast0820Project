@@ -60,8 +60,10 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 	public String deployHome() {
 		//1:查询部署对象信息，对应表（act_re_deployment）
 		List<Deployment> depList = workflowService.findDeploymentList();
+
 		//2:查询流程定义的信息，对应表（act_re_procdef）
 		List<ProcessDefinition> pdList = workflowService.findProcessDefinitionList();
+
 		//放置到上下文对象中
 		ValueContext.putValueContext("depList", depList);
 		ValueContext.putValueContext("pdList", pdList);
@@ -124,7 +126,9 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 
 	// 启动流程
 	public String startProcess() {
-		//更新请假状态，启动流程实例，让启动的流程实例关联业务
+		/**
+		 * 更新请假状态，启动流程实例，让启动的流程实例关联业务
+		 */
 		workflowService.saveStartProcess(workflowBean);
 		return "listTask";
 	}
