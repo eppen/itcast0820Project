@@ -16,7 +16,7 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements IEmployeeDao
 	public Employee findEmployeeByName(String name) {
 		// hql语句from后的Employee，对应实体类Employee用户表
 		String hql = "from Employee o where o.name = ?";
-		List<Employee> list = this.getHibernateTemplate().find(hql, name);
+		List<Employee> list = (List<Employee>) this.getHibernateTemplate().find(hql, name);
 		Employee employee = null;
 		if (list != null && list.size() > 0) {
 			employee = list.get(0);

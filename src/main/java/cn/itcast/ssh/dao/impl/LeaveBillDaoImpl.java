@@ -17,7 +17,7 @@ public class LeaveBillDaoImpl extends HibernateDaoSupport implements ILeaveBillD
 		//从Session中获取当前用户
 		Employee employee = SessionContext.get();
 		String hql = "from LeaveBill o where o.user=?";//指定当前用户的请假单
-		List<LeaveBill> list = this.getHibernateTemplate().find(hql,employee);
+		List<LeaveBill> list = (List<LeaveBill>) this.getHibernateTemplate().find(hql,employee);
 		return list;
 	}
 	
