@@ -46,6 +46,8 @@ public interface IWorkflowService {
 
 	Map<String, Object> findCoordingByTask(String taskId);
 
+	void saveStartProcess(Long id);
+
 	
 
 }

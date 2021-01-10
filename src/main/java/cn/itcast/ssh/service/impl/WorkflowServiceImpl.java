@@ -136,6 +136,12 @@ public class WorkflowServiceImpl implements IWorkflowService {
 		repositoryService.deleteDeployment(deploymentId, true);
 	}
 
+	@Override
+	public void saveStartProcess(Long id) {
+		WorkflowBean workflowBean = new WorkflowBean();
+		workflowBean.setId(id);
+		saveStartProcess(workflowBean);
+	}
 	/**
 	 * 更新请假状态，启动流程实例，让启动的流程实例关联业务
 	 */

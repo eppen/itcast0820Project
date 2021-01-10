@@ -18,6 +18,7 @@
 	</bean>
 	<bean id="leaveBillService" class="cn.itcast.ssh.service.impl.LeaveBillServiceImpl">
 		<property name="leaveBillDao" ref="leaveBillDao"></property>
+		<property name="workflowService" ref="workflowService"></property>
 	</bean>
 	<bean id="workflowService" class="cn.itcast.ssh.service.impl.WorkflowServiceImpl">
 		<property name="repositoryService" ref="repositoryService"></property>

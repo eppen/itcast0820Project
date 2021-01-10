@@ -2,7 +2,6 @@ package cn.itcast.ssh.web.action;
 
 import java.util.List;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.itcast.ssh.domain.LeaveBill;
@@ -13,7 +12,7 @@ import cn.itcast.ssh.utils.ValueContext;
  * 请假单管理
  */
 @SuppressWarnings("serial")
-public class LeaveBillAction extends ActionSupport implements ModelDriven<LeaveBill> {
+public class LeaveBillAction extends WfBaseAction implements ModelDriven<LeaveBill> {
 
 	private LeaveBill leaveBill = new LeaveBill();
 
