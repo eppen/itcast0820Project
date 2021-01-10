@@ -1,9 +1,9 @@
 package cn.itcast.ssh.utils;
 
-import cn.itcast.ssh.domain.Employee;
-
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
+
+import cn.itcast.ssh.domain.Employee;
 
 /**
  * 登录验证拦截器：

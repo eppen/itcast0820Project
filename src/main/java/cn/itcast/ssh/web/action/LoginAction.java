@@ -1,11 +1,11 @@
 package cn.itcast.ssh.web.action;
 
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
 import cn.itcast.ssh.domain.Employee;
 import cn.itcast.ssh.service.IEmployeeService;
 import cn.itcast.ssh.utils.SessionContext;
-
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 /**
  * 登录管理
