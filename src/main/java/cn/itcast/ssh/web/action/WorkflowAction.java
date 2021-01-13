@@ -191,6 +191,21 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 	public String viewCurrentImage() {
 		//任务ID
 		String taskId = workflowBean.getTaskId();
+		if (taskId == null || taskId.isEmpty()) {
+			Long id = workflowBean.getId();
+			
+//			taskId = leaveBillService.findLeaveBillById(workflowBean.getId());
+			
+			//3：使用当前对象获取到流程定义的key（对象的名称就是流程定义的key）
+			String key = LeaveBill.class.getSimpleName();
+			/**
+			 * 5：(1)使用流程变量设置字符串（格式：LeaveBill.id的形式），通过设置，让启动的流程（流程实例）关联业务
+			 *   (2)使用正在执行对象表中的一个字段BUSINESS_KEY（Activiti提供的一个字段），让启动的流程（流程实例）关联业务
+			 */
+			String objId = key + "." + id;        //格式：LeaveBill.id的形式（使用流程变量）
+			taskId = workflowService.findTaskIdByBussinessKey(objId);
+			
+		}
 		/**一：查看流程图*/
 		//1：获取任务ID，获取任务对象，使用任务对象获取流程定义ID，查询流程定义对象
 		ProcessDefinition pd = workflowService.findProcessDefinitionByTaskId(taskId);

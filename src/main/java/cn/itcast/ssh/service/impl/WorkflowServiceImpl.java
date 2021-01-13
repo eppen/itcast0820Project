@@ -15,6 +15,7 @@ import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.form.TaskFormData;
+import org.activiti.engine.history.HistoricProcessInstance;
 import org.activiti.engine.history.HistoricVariableInstance;
 import org.activiti.engine.impl.identity.Authentication;
 import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity;
@@ -400,10 +401,10 @@ public class WorkflowServiceImpl implements IWorkflowService {
 		//获取流程定义ID
 		String processDefinitionId = task.getProcessDefinitionId();
 		//查询流程定义的对象
-		ProcessDefinition pd = repositoryService.createProcessDefinitionQuery()//创建流程定义查询对象，对应表act_re_procdef 
+		ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()//创建流程定义查询对象，对应表act_re_procdef 
 				.processDefinitionId(processDefinitionId)//使用流程定义ID查询
 				.singleResult();
-		return pd;
+		return processDefinition;
 	}
 
 	/**
@@ -439,6 +440,28 @@ public class WorkflowServiceImpl implements IWorkflowService {
 		map.put("width", activityImpl.getWidth());
 		map.put("height", activityImpl.getHeight());
 		return map;
+	}
+
+	@Override
+	public String findTaskIdByBussinessKey(String businessKey) {
+		// TODO Auto-generated method stub
+		/**1:使用历史的流程实例查询，返回历史的流程实例对象，获取流程实例ID*/
+		HistoricProcessInstance hpi = historyService.createHistoricProcessInstanceQuery()//对应历史的流程实例表
+						.processInstanceBusinessKey(businessKey)//使用BusinessKey字段查询
+						.singleResult();
+		
+		//流程实例ID
+		String processInstanceId = hpi.getId();
+		Task task = taskService.createTaskQuery()//
+//				.taskId(taskId)//使用任务ID查询
+				.processInstanceId(processInstanceId)
+				.singleResult();
+		if (task == null) {
+			return null;
+		}
+		return task.getId();
+		
+		
 	}
 
 

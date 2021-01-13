@@ -48,6 +48,8 @@ public interface IWorkflowService {
 
 	void saveStartProcess(Long id);
 
+	String findTaskIdByBussinessKey(String objId);
+
 	
 
 }

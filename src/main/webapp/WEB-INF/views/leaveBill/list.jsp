@@ -74,10 +74,12 @@
 			        		</s:if>
 			 				<s:elseif test="state==1">
 			 					<a href="${pageContext.request.contextPath }/workflowAction_viewHisComment.action?id=<s:property value="id"/>" >查看审核记录</a>
+			 					<a target="_blank" href="workflowAction_viewCurrentImage.action?id=<s:property value="id"/>">查看当前流程图</a>
 			 				</s:elseif>
 			 				<s:else>
 			 					<a href="leaveBillAction_delete.action?id=<s:property value="id"/>" >删除</a>
 			 					<a href="${pageContext.request.contextPath }/workflowAction_viewHisComment.action?id=<s:property value="id"/>" >查看审核记录</a>
+			 					<a target="_blank" href="workflowAction_viewCurrentImage.action?id=<s:property value="id"/>">查看当前流程图</a>
 			 				</s:else>
 				        	
 						</div></td>
