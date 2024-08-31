@@ -3,12 +3,13 @@ package cn.itcast.ssh.dao.impl;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import cn.itcast.ssh.dao.ILeaveBillDao;
 import cn.itcast.ssh.domain.Employee;
 import cn.itcast.ssh.domain.LeaveBill;
 import cn.itcast.ssh.utils.SessionContext;
-
+@Repository("leaveBillDao")
 public class LeaveBillDaoImpl extends HibernateDaoSupport implements ILeaveBillDao {
 
 	/**查询自己的请假单的信息*/

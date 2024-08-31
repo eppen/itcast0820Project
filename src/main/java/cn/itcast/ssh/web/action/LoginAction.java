@@ -1,5 +1,8 @@
 package cn.itcast.ssh.web.action;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -11,6 +14,7 @@ import cn.itcast.ssh.utils.SessionContext;
  * 登录管理
  */
 @SuppressWarnings("serial")
+@Scope("prototype")
 public class LoginAction extends ActionSupport implements ModelDriven<Employee> {
 
 	private Employee employee = new Employee();
@@ -20,11 +24,9 @@ public class LoginAction extends ActionSupport implements ModelDriven<Employee> 
 		return employee;
 	}
 
+	@Autowired
 	private IEmployeeService employeeService;
 
-	public void setEmployeeService(IEmployeeService employeeService) {
-		this.employeeService = employeeService;
-	}
 
 	/**
 	 * 登录

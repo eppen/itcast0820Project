@@ -72,9 +72,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 导入相关配置 -->
-	<import resource="classpath:applicationContext-dao.xml"/>
-	<import resource="classpath:applicationContext-service.xml"/>
-	<import resource="classpath:applicationContext-action.xml"/>
+<!-- 	<import resource="classpath:applicationContext-dao.xml"/> -->
+	<!-- <import resource="classpath:applicationContext-service.xml"/> -->
+<!-- 	<import resource="classpath:applicationContext-action.xml"/> -->
 	<import resource="classpath:activiti-context.xml"/>
 	
 </beans>

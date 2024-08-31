@@ -2,6 +2,10 @@ package cn.itcast.ssh.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import cn.itcast.ssh.dao.ILeaveBillDao;
 import cn.itcast.ssh.domain.LeaveBill;
 import cn.itcast.ssh.service.ILeaveBillService;
@@ -11,15 +15,15 @@ import cn.itcast.ssh.utils.SessionContext;
 /**
  * 请假单的业务(CRUD)
  */
+@Service
+@Transactional
 public class LeaveBillServiceImpl implements ILeaveBillService {
 
+	@Autowired
 	private ILeaveBillDao leaveBillDao;
-	
+	@Autowired
 	private IWorkflowService workflowService;
-
-	public void setLeaveBillDao(ILeaveBillDao leaveBillDao) {
-		this.leaveBillDao = leaveBillDao;
-	}
+ 
 
 	/**
 	 * 查询自己的请假单的信息
@@ -74,8 +78,6 @@ public class LeaveBillServiceImpl implements ILeaveBillService {
 		leaveBillDao.deleteLeaveBillById(id);
 	}
 
-	public void setWorkflowService(IWorkflowService workflowService) {
-		this.workflowService = workflowService;
-	}
+ 
 
 }

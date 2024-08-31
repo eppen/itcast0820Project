@@ -2,6 +2,9 @@ package cn.itcast.ssh.web.action;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.itcast.ssh.domain.LeaveBill;
@@ -12,6 +15,7 @@ import cn.itcast.ssh.utils.ValueContext;
  * 请假单管理
  */
 @SuppressWarnings("serial")
+@Scope("prototype")
 public class LeaveBillAction extends WfBaseAction implements ModelDriven<LeaveBill> {
 
 	private LeaveBill leaveBill = new LeaveBill();
@@ -21,11 +25,9 @@ public class LeaveBillAction extends WfBaseAction implements ModelDriven<LeaveBi
 		return leaveBill;
 	}
 
+	@Autowired
 	private ILeaveBillService leaveBillService;
 
-	public void setLeaveBillService(ILeaveBillService leaveBillService) {
-		this.leaveBillService = leaveBillService;
-	}
 
 	/**
 	 * 请假管理首页显示

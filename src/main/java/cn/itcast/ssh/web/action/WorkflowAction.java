@@ -13,6 +13,8 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -32,6 +34,7 @@ import cn.itcast.ssh.web.form.WorkflowBean;
  *    任务办理
  */
 @SuppressWarnings("serial")
+@Scope("prototype")
 public class WorkflowAction extends ActionSupport implements ModelDriven<WorkflowBean> {
 
 	private WorkflowBean workflowBean = new WorkflowBean();
@@ -40,17 +43,13 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 		return workflowBean;
 	}
 
+	@Autowired
 	private IWorkflowService workflowService;
 
+	@Autowired
 	private ILeaveBillService leaveBillService;
 
-	public void setLeaveBillService(ILeaveBillService leaveBillService) {
-		this.leaveBillService = leaveBillService;
-	}
-
-	public void setWorkflowService(IWorkflowService workflowService) {
-		this.workflowService = workflowService;
-	}
+ 
 
 	/**
 	 * 部署管理首页显示

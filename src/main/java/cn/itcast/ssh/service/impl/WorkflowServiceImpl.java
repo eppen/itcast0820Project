@@ -27,6 +27,9 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.ssh.dao.ILeaveBillDao;
 import cn.itcast.ssh.domain.LeaveBill;
@@ -41,45 +44,26 @@ import cn.itcast.ssh.web.form.WorkflowBean;
  *    任务查询
  *    任务办理
  */
+@Service
+@Transactional
 public class WorkflowServiceImpl implements IWorkflowService {
 	/**
 	 * 请假申请Dao
 	 */
+	@Autowired
 	private ILeaveBillDao leaveBillDao;
-
+	@Autowired
 	private RepositoryService repositoryService;
-
+	@Autowired
 	private RuntimeService runtimeService;
-
+	@Autowired
 	private TaskService taskService;
-
+	@Autowired
 	private FormService formService;
-
+	@Autowired
 	private HistoryService historyService;
 
-	public void setLeaveBillDao(ILeaveBillDao leaveBillDao) {
-		this.leaveBillDao = leaveBillDao;
-	}
-
-	public void setHistoryService(HistoryService historyService) {
-		this.historyService = historyService;
-	}
-
-	public void setFormService(FormService formService) {
-		this.formService = formService;
-	}
-
-	public void setRuntimeService(RuntimeService runtimeService) {
-		this.runtimeService = runtimeService;
-	}
-
-	public void setTaskService(TaskService taskService) {
-		this.taskService = taskService;
-	}
-
-	public void setRepositoryService(RepositoryService repositoryService) {
-		this.repositoryService = repositoryService;
-	}
+ 
 
 	/**
 	 * 部署流程定义
