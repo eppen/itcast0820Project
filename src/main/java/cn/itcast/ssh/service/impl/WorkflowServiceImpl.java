@@ -78,7 +78,7 @@ public class WorkflowServiceImpl implements IWorkflowService {
 					.addZipInputStream(zipInputStream)//
 					.deploy();//完成部署
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
